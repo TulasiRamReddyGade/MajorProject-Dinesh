@@ -78,7 +78,7 @@ function SecureLogin() {
     };
     // Do Api call
     // if it is valid
-    history.push("/login-secure/step-1?username=Tulasi");
+    history.push("/login-secure/step-1/Tulasi");
   };
 
   return (

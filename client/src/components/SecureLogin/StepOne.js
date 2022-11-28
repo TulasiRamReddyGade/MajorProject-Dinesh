@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import PhotoRandomGrid from "../card/PhotoRandomGrid";
+import AlphabetRandomGrid from "../card/AlphabetRandomGrid";
+import { useParams } from "react-router";
 
 const StepOneDiv = styled.div`
   width: 40vw;
@@ -31,6 +33,7 @@ const FormDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 `;
 
 const Label = styled.label`
@@ -52,18 +55,39 @@ const StepOne = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const params = useParams();
+
+  console.log();
+
   return (
     <StepOneDiv>
       <Form>
         <FormDiv>
           <Label for="name">Mail</Label>
-          <Input id="name" type="email" ref={emailRef}></Input>
+          <Input
+            id="name"
+            type="email"
+            ref={emailRef}
+            value={params.username}
+          ></Input>
         </FormDiv>
         <FormDiv>
           <Label for="password">Password</Label>
           <Input id="password" type="password" ref={passwordRef}></Input>
         </FormDiv>
-        <PhotoRandomGrid photoIndices={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />,
+        <FormDiv>
+          <PhotoRandomGrid photoIndices={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
+          <AlphabetRandomGrid
+            alphabets={["A", "D", "E", "K", "O", "P", "Q", "B", "V"]}
+          />
+        </FormDiv>
+        <FormDiv>
+          <Input
+            type="submit"
+            value="Login"
+            style={{ backgroundColor: "#166534" }}
+          />
+        </FormDiv>
       </Form>
     </StepOneDiv>
   );

@@ -22,7 +22,7 @@ function App() {
       <Route path="/login-secure" exact>
         <SecureLogin />
       </Route>
-      <Route path="/login-secure/step-1" exact>
+      <Route path="/login-secure/step-1/:username" exact>
         <StepOne />
       </Route>
     </div>
